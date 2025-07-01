@@ -1,5 +1,5 @@
 
-export async function getRecipe(ingredients) {
+export async function getRecipeFromChefClaude(ingredients) {
   const res = await fetch("/.netlify/functions/complete", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
