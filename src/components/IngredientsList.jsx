@@ -4,7 +4,7 @@ export default function IngredientsList(props) {
     ))
     return (
         <section >
-            <h2>Ingredienter tilgjengelige:</h2>
+            <h2>Ingredienser tilgjengelige:</h2>
             <ul className="ingredients-list">{ingredientsListItems}</ul>
             {props.ingredients.length > 0 && <div className="get-recipe-container">
                 <div>
