@@ -4,7 +4,7 @@ import ClaudeRecipe from "./ClaudeRecipe"
 import { getRecipeFromChefClaude } from "../ai"
 
 export default function Content() {
-    const [ingredients, setIngredients] = React.useState(["egg"]
+    const [ingredients, setIngredients] = React.useState([]
 
     )
     const [recipe, setRecipe] = React.useState("")

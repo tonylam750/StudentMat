@@ -1,8 +1,8 @@
-// netlify/functions/complete.js
+
 import { Anthropic } from "@anthropic-ai/sdk";
 
 const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,  // hent fra miljø
+  apiKey: process.env.ANTHROPIC_API_KEY,
 });
 
 const SYSTEM_PROMPT = `

@@ -8,3 +8,5 @@ export async function getRecipeFromChefClaude(ingredients) {
   const { recipe } = await res.json();
   return recipe;
 }
+
+
