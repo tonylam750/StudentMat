@@ -17,41 +17,21 @@ Formater svaret ditt i Markdown for å gjøre det enklere å vise på en nettsid
 `;
 
 export async function handler(event) {
-  try {
-    const { ingredients } = JSON.parse(event.body);  // frontend sender { ingredients: [...] }
-    const ingredientsString = ingredients.join(", ");
+  const { ingredients } = JSON.parse(event.body); 
 
-    const res = await anthropic.messages.create({
-      model: "claude-3-haiku-20240307",
-      max_tokens: 1024,
-      system: SYSTEM_PROMPT,
-      messages: [
-        { role: "user", content: `Jeg har ${ingredientsString}. Værsåsnill gi meg en oppskrift jeg kan lage!` }
-      ],
-    });
+  const ingredientsString = ingredients.join(", ");
 
-    // Log the response for debugging
-    console.log("Anthropic response:", JSON.stringify(res, null, 2));
+  const res = await anthropic.messages.create({
+    model: "claude-3-haiku-20240307",
+    max_tokens: 1024,
+    system: SYSTEM_PROMPT,
+    messages: [
+      { role: "user", content: `Jeg har ${ingredientsString}. Værsåsnill gi meg en oppskrift jeg kan lage!` }
+    ],
+  });
 
-    // Try to extract the recipe from different possible response structures
-    let recipe = null;
-    if (res.content && Array.isArray(res.content) && res.content[0]?.text) {
-      recipe = res.content[0].text;
-    } else if (res.choices && Array.isArray(res.choices) && res.choices[0]?.message?.content) {
-      recipe = res.choices[0].message.content;
-    } else {
-      recipe = res;
-    }
-
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ recipe })
-    };
-  } catch (error) {
-    console.error("Function error:", error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: error.message || "Unknown error" })
-    };
-  }
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ recipe: res.content[0].text })
+  };
 }
