@@ -9,7 +9,7 @@ export default function IngredientsList(props) {
             {props.ingredients.length > 0 && <div className="get-recipe-container">
                 <div>
                     <h3>Klar for en oppskrift?</h3>
-                    <p>Generer en oppskrift fra din liste av ingredienter.</p>
+                    <p>Generer en oppskrift fra din liste av ingredienser.</p>
                 </div>
                 <button onClick={props.getRecipe}>Hent oppskrift</button>
             </div>}

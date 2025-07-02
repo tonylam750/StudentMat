@@ -118,6 +118,7 @@ ul.ingredients-list > li {
     color: #6B7280;
     font-size: 0.95rem;
     line-height: 20px;
+    max-width: 200px;
 }
 
 .get-recipe-container button {
