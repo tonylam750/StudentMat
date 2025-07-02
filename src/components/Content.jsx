@@ -28,7 +28,7 @@ export default function Content() {
                     aria-label="Add ingredient"
                     name="ingredient"
                 />
-                <button>Legg til ingredient</button>
+                <button>Legg til ingrediens</button>
             </form>
 
             {ingredients.length > 0 &&
