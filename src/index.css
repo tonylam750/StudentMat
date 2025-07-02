@@ -66,13 +66,26 @@ main {
     cursor: pointer;
 }
 
-.add-ingredient-form > button:active {
+.add-ingredient-form > button:active ,
+.ingredient-container > button:active {
   opacity: 0.4;
 }
 
 .add-ingredient-form > button::before {
     content: "+";
     margin-right: 7px;
+}
+
+.ingredient-container > button{
+    font-family: inherit;
+    border-radius: 8px;
+    border: none;
+    background: #eb552f;
+    color: #fff;
+    padding:  0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 

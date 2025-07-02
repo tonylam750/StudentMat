@@ -19,6 +19,11 @@ export default function Content() {
         setIngredients(prevIngredients => [...prevIngredients, newIngredient])
     }
 
+    function removeAllIngredients() {
+        setIngredients([])
+        setRecipe("")
+    }
+
     return (
         <main>
             <form action={addIngredient} className="add-ingredient-form">
@@ -32,10 +37,13 @@ export default function Content() {
             </form>
 
             {ingredients.length > 0 &&
-                <IngredientsList
-                    ingredients={ingredients}
-                    getRecipe={getRecipe}
-                />
+                <div className="ingredient-container">
+                    <button onClick={removeAllIngredients}>Fjern liste</button>
+                    <IngredientsList
+                        ingredients={ingredients}
+                        getRecipe={getRecipe}
+                        />
+                </div>
             }
 
             {recipe && <ClaudeRecipe recipe={recipe} />}
