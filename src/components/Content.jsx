@@ -9,6 +9,14 @@ export default function Content() {
     )
     const [recipe, setRecipe] = React.useState("")
 
+    const recipeSection = React.useRef(null)
+
+    React.useEffect(() => {
+        if (recipe && recipeSection.current) {
+            recipeSection.current.scrollIntoView({behavior: "smooth"})
+        }
+    }, [recipe])
+
     async function getRecipe() {
         const recipeMarkdown = await getRecipeFromChefClaude(ingredients)
         setRecipe(recipeMarkdown)
@@ -40,6 +48,7 @@ export default function Content() {
                 <div className="ingredient-container">
                     <button onClick={removeAllIngredients}>Fjern liste</button>
                     <IngredientsList
+                        ref = {recipeSection}
                         ingredients={ingredients}
                         getRecipe={getRecipe}
                         />

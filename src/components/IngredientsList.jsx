@@ -7,7 +7,7 @@ export default function IngredientsList(props) {
             <h2>Ingredienser tilgjengelige:</h2>
             <ul className="ingredients-list">{ingredientsListItems}</ul>
             {props.ingredients.length > 0 && <div className="get-recipe-container">
-                <div>
+                <div ref={props.ref}>
                     <h3>Klar for en oppskrift?</h3>
                     <p>Generer en oppskrift fra din liste av ingredienser.</p>
                 </div>
